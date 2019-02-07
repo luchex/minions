@@ -1,22 +1,23 @@
 'use strict';
 
-const LinkedList = require('./linkedList/LinkedList');
+const NavigationStack = require('./NavigationStack/NavigationStack');
 
-// Initializing linked list
-let list = new LinkedList();
+let navigationStack = new NavigationStack();
 
-//Adding 6 element to linked list
-console.log("Printing the linked list");
-list.addNode(1);
-list.addNode(2);
-list.addNode(5);
-list.addNode(7);
-list.addNode(8);
-list.addNode(9);
-list.print();
+    let gridSize = 4;
+    let grid = [];
+    for (let i = 0; i <= gridSize; i++) {
+        grid[i] = [];
+        for (let j = 0; j < gridSize; j++) {
+            grid[i][j] = 'Empty';
+        }
+    }
 
-// Removing 8 from linked list
-console.log("Removing 8 from the linked list");
-list.removeNode(8);
+    grid[0][0] = "Start";
+    grid[2][2] = "End";
+    grid[1][1] = "Obstacle";
+    grid[2][1] = "Obstacle";
+    grid[3][1] = "Obstacle";
+    grid[1][2] = "Obstacle";
 
-list.print();
+console.log(navigationStack.findShortestPath([0,0], grid));
